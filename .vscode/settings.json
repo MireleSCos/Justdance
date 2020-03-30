@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
@@ -50,4 +51,7 @@
         "thread": "cpp",
         "typeinfo": "cpp"
     }
+=======
+    "C_Cpp.errorSquiggles": "Disabled"
+>>>>>>> 5751c6af1c346ad1b37c68a9b867221436b1d307
 }
