@@ -5,15 +5,13 @@
 #include <opencv2/videoio.hpp>
 #include <iostream>
 #include <unistd.h>
-<<<<<<< HEAD
 #include <stdlib.h>
 #include <thread> 
-=======
->>>>>>> 5751c6af1c346ad1b37c68a9b867221436b1d307
+
 
 using namespace cv;
 using namespace std;
-
+	
 VideoCapture capture = VideoCapture(0); 
 Mat frame;
 Mat frameVermelho;
@@ -27,11 +25,8 @@ bool terminou = false;
 int pontos = 0;
 int seq = 1;
 
-<<<<<<< HEAD
 void musica() { system("/home/louise/Justdance/play.txt"); }
 
-=======
->>>>>>> 5751c6af1c346ad1b37c68a9b867221436b1d307
 void pintarVerde(){
 	//mudar cor para verde 
 	for(i=0;i<frame.rows;i++) {
@@ -84,7 +79,6 @@ void pintarVerde(){
 				}
 
 			} 
-<<<<<<< HEAD
 
 			if (campos[3] == 1) {
 				
@@ -143,66 +137,6 @@ void pintarVerde(){
 					temp_ptr[2] = 0;   
 				}
 
-=======
-
-			if (campos[3] == 1) {
-				
-				if ((((i > (frame.rows-10)/3) && (i < ((frame.rows-10)/3)+5)) && (j < ((frame.cols-10)/3)+5))||
-					(((j > (frame.cols-10)/3) && (j < ((frame.cols-10)/3)+5)) &&((i > (frame.rows-10)/3) && (i < (((frame.rows-10)/3)*2)+5)))||
-					(((i > ((frame.rows-10)/3)*2) && (i < (((frame.rows-10)/3)*2)+5))&&(j < ((frame.cols-10)/3)+5))) {
-					temp_ptr[0] = 0;
-					temp_ptr[1] = 255;
-					temp_ptr[2] = 0;   
-				}
-
-			}
-
-			if (campos[4] == 1) {
-				
-				if ((((i > ((frame.rows-10)/3)*2) && (i < (((frame.rows-10)/3)*2)+5))&&((j > (frame.cols-10)/3)&&((j < (((frame.cols-10)/3)*2)+5))))||
-					(((j > (frame.cols-10)/3) && (j < ((frame.cols-10)/3)+5)) &&((i > (frame.rows-10)/3) && (i < (((frame.rows-10)/3)*2)+5)))||
-					(((j > ((frame.cols-10)/3)*2) && (j < (((frame.cols-10)/3)*2)+5) &&((i > (frame.rows-10)/3) && (i < (((frame.rows-10)/3)*2)+5))))||
-					(((i > (frame.rows-10)/3) && (i < ((frame.rows-10)/3)+5))&&((j > (frame.cols-10)/3)&&((j < (((frame.cols-10)/3)*2)+5))))) {
-					temp_ptr[0] = 0;
-					temp_ptr[1] = 255;
-					temp_ptr[2] = 0;   
-				}
-
-			}
-
-			if (campos[5] == 1) {
-				
-				if ((((i > (frame.rows-10)/3) && (i < ((frame.rows-10)/3)+5)) && (j > ((frame.cols-10)/3)*2)) || 
-					(((j > ((frame.cols-10)/3)*2) && (j < (((frame.cols-10)/3)*2)+5) &&((i > (frame.rows-10)/3) && (i < (((frame.rows-10)/3)*2)+5))))||
-					(((i > ((frame.rows-10)/3)*2) && (i < (((frame.rows-10)/3)*2)+5))&&(j > ((frame.cols-10)/3)*2))) {
-					temp_ptr[0] = 0;
-					temp_ptr[1] = 255;
-					temp_ptr[2] = 0;   
-				}
-
-			}
-
-			if (campos[6] == 1) {
-				
-				if ((((i > ((frame.rows-10)/3)*2) && (i < (((frame.rows-10)/3)*2)+5))&&(j < ((frame.cols-10)/3)+5))||
-					(((j > (frame.cols-10)/3) && (j < ((frame.cols-10)/3)+5)) && (i > ((frame.rows-10)/3)*2))) {
-					temp_ptr[0] = 0;
-					temp_ptr[1] = 255;
-					temp_ptr[2] = 0;   
-				}
-
-			} 
-			if (campos[7] == 1) {
-				
-				if ((((i > ((frame.rows-10)/3)*2) && (i < (((frame.rows-10)/3)*2)+5))&&((j > (frame.cols-10)/3)&&((j < (((frame.cols-10)/3)*2)+5))))||
-					(((j > (frame.cols-10)/3) && (j < ((frame.cols-10)/3)+5)) &&(i > ((frame.rows-10)/3)*2))||
-					(((j > ((frame.cols-10)/3)*2) && (j < (((frame.cols-10)/3)*2)+5) &&(i > ((frame.rows-10)/3)*2)))) {
-					temp_ptr[0] = 0;
-					temp_ptr[1] = 255;
-					temp_ptr[2] = 0;   
-				}
-
->>>>>>> 5751c6af1c346ad1b37c68a9b867221436b1d307
 			}
 
 			if (campos[8] == 1) {
@@ -221,8 +155,8 @@ void pintarVerde(){
 }
 
 int main( int argc, char** argv ) {
-	thread first = thread(musica); 
 
+	thread first = thread(musica); 
 	cout << "\nComecou!\n---------------------------------------------------------" << endl;
 
 	if (!capture.isOpened()) // Caso falhe em iniciar webam
@@ -442,11 +376,7 @@ int main( int argc, char** argv ) {
 				seq += 2;		
 
 		}
-<<<<<<< HEAD
-		else if((maiorThreshold1 != -1 && (campos[maiorThreshold1] == 1 ))){
-=======
-		else if((maiorThreshold1 != 0) && (campos[maiorThreshold1] == 1 )){
->>>>>>> 5751c6af1c346ad1b37c68a9b867221436b1d307
+		else if((maiorThreshold1 != -1) && (campos[maiorThreshold1] == 1 )){
 			for (i = 0; i < 9; i++) {
 				if (i != maiorThreshold1)
 				{
@@ -470,10 +400,7 @@ int main( int argc, char** argv ) {
 		}
 
 	}
-<<<<<<< HEAD
 	first.join(); 
-=======
->>>>>>> 5751c6af1c346ad1b37c68a9b867221436b1d307
 	cout << "Sua pontuação foi " << pontos << endl;
     return 0;
 
