@@ -9,6 +9,7 @@
 #include <thread> 
 #include "IdentificadorObjetoIndicador.hpp"
 #include "Coreografia.hpp"
+#include "Justdance.hpp"
 int op = 0;
 
 using namespace cv;
@@ -451,8 +452,10 @@ void play(){
 int main( int argc, char** argv ) {
 
 	thread first = thread(musica); 
-	//IdentificadorObjetoIndicador id = IdentificadorObjetoIndicador(capture,frame,frameVermelho);
+	//Testando classes
+	IdentificadorObjetoIndicador id = IdentificadorObjetoIndicador(capture,frame,frameVermelho);
 	Coreografia co = Coreografia("Mar",passosMus1);
+	Justdance jus = Justdance(co,id);
 	while(1){
 
 		exibeMenu();

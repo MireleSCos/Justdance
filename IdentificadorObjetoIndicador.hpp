@@ -11,6 +11,10 @@ using namespace std;
 
 class IdentificadorObjetoIndicador{
     public:
+	    VideoCapture capture;
+        Mat frame, frameVermelho;
+		int i,j;
+		
         IdentificadorObjetoIndicador(){}
         IdentificadorObjetoIndicador(VideoCapture capture, Mat frame, Mat frameVermelho){
             this->capture = capture;
@@ -24,9 +28,7 @@ class IdentificadorObjetoIndicador{
         void buscarObjetoVermelho();
 		*/
 
-        VideoCapture capture;
-        Mat frame, frameVermelho;
-		int i,j;
+
 
 
 	//Adiciona bordas verdes quando o objeto foi encontrado no campo = 1, referente ao local que deveria está 

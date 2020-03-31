@@ -12,6 +12,7 @@ class Coreografia
     public:
         string musica;
         int* passosMus;
+        
         Coreografia(){}
         Coreografia(string musica, int passosMus[]){
             this->musica = musica;
