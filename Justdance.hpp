@@ -57,7 +57,10 @@ class Justdance
                 }
 
             }
-
+            if ( coreograf.passosMus[seq]  == 8 ){
+                campos[8] = 1 ;
+            }
+            cout << maiorThreshold1 << " - " << maiorThreshold2 <<  " 8 = " << campos[maiorThreshold1] << endl;
             // Alocar espaço em que o objeto foi detectado
             if ((maiorThreshold1 != -1) && (maiorThreshold2 != -1) && (campos[maiorThreshold1] == 1) && (campos[maiorThreshold2] ==1)){
                     pontos+= 100;
@@ -108,7 +111,7 @@ class Justdance
 
                 //verificar objeto no devido local definido
 
-                this->verificarAlocacaoDeObjeto();
+                verificarAlocacaoDeObjeto();
                 //Verificar se terminou
                 
                 if (campos[4] == 1) {

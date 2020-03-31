@@ -17,7 +17,7 @@ using namespace std;
 	
 VideoCapture capture = VideoCapture(0); 
 Mat frame;
-int passosMus1[] = {0,5,2,6,3,5,3,5,1,7,0,8,4,4}; //Quantidade par e terminar em 44
+int passosMus1[] = {0,5,2,6,3,5,3,5,1,7,0,8,0,5,2,6,3,5,3,5,1,7,0,8,0,5,2,6,3,5,3,5,1,7,0,8,0,5,2,6,3,5,3,5,1,7,0,8,4,4}; //Quantidade par e terminar em 44
 void musica() { 
 	
 	while(op==0){
