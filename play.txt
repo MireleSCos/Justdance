@@ -1,2 +1,2 @@
-play /home/louise/Justdance/badr.mp3
+play /home/mirele/Documentos/Projetos/Justdance/badr.mp3
 
