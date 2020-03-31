@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <thread> 
-
+int op = 0;
 
 using namespace cv;
 using namespace std;
@@ -25,7 +25,39 @@ bool terminou = false;
 int pontos = 0;
 int seq = 1;
 
-void musica() { system("/home/mirele/Documentos/Projetos/Justdance/play.txt"); }
+void musica() { 
+	
+	while(op==0){
+	
+	}
+	switch (op)
+	{
+	case 1:
+		system("/home/louise/Justdance/play.txt"); 
+		break;
+	case 2:
+		system("/home/louise/Justdance/play2.txt"); 
+		break;
+	
+	default:
+		break;
+	}
+	
+}
+
+
+void exibeMenu(){
+            printf("\n\n\t\t________________________Escolha sua música: ____________________\n"
+            "\t\t|\t\t\t\t\t\t\t\t|\n"
+            "\t\t|\t\t\t1 - Bad Romance -  Lady Gaga\t\t\t|\n"
+            "\t\t|\t\t\t2 - Just Dance - Lady Gaga\t\t\t\t|\n"
+			"\t\t|\t\t\t\t\t\t\t\t|\n"
+			"\n\n\t\t________________________Sair do programa: ____________________\n"
+            "\t\t|\t\t\t\t\t\t\t\t|\n"
+            "\t\t|\t\t\t3 - Fechar \t\t\t\t|\n"
+            "\t\t|\t\t\t\t\t\t\t\t|\n"
+            "\t\t-----------------------------------------------------------------\n\n");
+}
 
 //Adiciona bordas verdes quando o objeto foi encontrado no campo = 1, referente ao local que deveria está 
 void pintarVerde(){
@@ -417,16 +449,29 @@ void play(){
 int main( int argc, char** argv ) {
 
 	thread first = thread(musica); 
-	cout << "\nComecou!\n---------------------------------------------------------" << endl;
+	while(1){
 
-	if (!capture.isOpened()) // Caso falhe em iniciar webam
-	{
-		return 1;
-	}
+		exibeMenu();
+		cout << "\t >>> Digite uma opcao: ";
+        cin >> op;
+
+		if(op==3){
+			break;
+		}
+
+		cout << "\nComecou!\n---------------------------------------------------------" << endl;
+		if (!capture.isOpened()) // Caso falhe em iniciar webcam
+		{
+			return 1;
+		}
 	//inicia o justdance
 	play();
 	first.join(); 
 	cout << "Sua pontuação foi " << pontos << endl;
+
+	}
+	
+
     return 0;
 
 }
