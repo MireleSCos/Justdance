@@ -7,6 +7,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <thread> 
+#include "IdentificadorObjetoIndicador.hpp"
+#include "Coreografia.hpp"
 int op = 0;
 
 using namespace cv;
@@ -449,6 +451,8 @@ void play(){
 int main( int argc, char** argv ) {
 
 	thread first = thread(musica); 
+	//IdentificadorObjetoIndicador id = IdentificadorObjetoIndicador(capture,frame,frameVermelho);
+	Coreografia co = Coreografia("Mar",passosMus1);
 	while(1){
 
 		exibeMenu();
