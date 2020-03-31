@@ -1,7 +1,9 @@
 #pragma once
 #include "Coreografia.hpp"
 #include "IdentificadorObjetoIndicador.hpp"
-
+int seq = 1;
+int maiorThreshold1 = -1;
+int maiorThreshold2 = -1 ;
 class Justdance
 {
     private:
@@ -9,9 +11,7 @@ class Justdance
     public:
         int campos[8];
         int thresholds[8];
-        int seq;
-        int maiorThreshold1;
-        int maiorThreshold2;
+        
         int pontos;
         Coreografia coreograf;
         IdentificadorObjetoIndicador identificador;
@@ -24,10 +24,6 @@ class Justdance
                 this->campos[i] = 0;
                 this->thresholds[i] = 0;
             }
-            
-            this->seq = 1;
-            this->maiorThreshold1 = -1;
-            this->maiorThreshold2 = -1;
             this->pontos = 0;
             this->coreograf = coreograf;
             this->identificador = identificador;
@@ -89,9 +85,11 @@ class Justdance
 
         }
         void play(){
+            
             while (terminou != true) {
                 
                 identificador.capture >> identificador.frame;
+
                 if(identificador.frame.empty()){ //Caso frame não tenha elementos 
                     break;
                 }

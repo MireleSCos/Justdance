@@ -1,2 +1,2 @@
-play /home/louise/Justdance/justd.mp3
+play /home/mirele/Documentos/Projetos/Justdance/justd.mp3
 
