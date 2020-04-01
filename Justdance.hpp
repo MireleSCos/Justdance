@@ -1,6 +1,8 @@
 #pragma once
 #include "Coreografia.hpp"
 #include "IdentificadorObjetoIndicador.hpp"
+#include <fstream>
+#include <iostream>
 int seq = 1;
 int maiorThreshold1 = -1;
 int maiorThreshold2 = -1 ;
@@ -120,5 +122,27 @@ class Justdance
 
             }
 
+        }
+        
+        void ranking(){
+            fstream stream;
+            int pontosArquivo = 0;
+
+            stream.open("ranking.txt", ios::in);
+            if (!stream.is_open()) {
+                cout << "Nao foi possivel abrir o arquivo para leitura" << endl;
+            }
+            if (!stream.eof() && !stream.bad() && !stream.fail()){
+                stream >> pontosArquivo;
+            }
+            stream.close();
+            if (pontos > pontosArquivo){
+                stream.open("ranking.txt", ios::out);
+                if (!stream.is_open()) {
+                    cout << "Nao foi possivel abrir o arquivo para escrita" << endl;
+                }
+                stream << pontos;
+                stream.close();
+            }
         }
 };
