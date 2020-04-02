@@ -132,9 +132,11 @@ class Justdance
             if (!stream.is_open()) {
                 cout << "Nao foi possivel abrir o arquivo para leitura" << endl;
             }
+
             if (!stream.eof() && !stream.bad() && !stream.fail()){
                 stream >> pontosArquivo;
             }
+            
             stream.close();
             if (pontos > pontosArquivo){
                 stream.open("ranking.txt", ios::out);
