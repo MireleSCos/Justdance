@@ -124,7 +124,7 @@ class Justdance
 
         }
         
-        void ranking(){
+        int ranking(){
             fstream stream;
             int pontosArquivo = 0;
 
@@ -144,5 +144,6 @@ class Justdance
                 stream << pontos;
                 stream.close();
             }
+            return pontosArquivo;
         }
 };

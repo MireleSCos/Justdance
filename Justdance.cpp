@@ -17,7 +17,7 @@ using namespace std;
 	
 VideoCapture capture = VideoCapture(0); 
 Mat frame;
-int passosMus1[] = {0,5,2,6,3,5,3,5,1,7,0,8,0,5,2,6,3,5,3,5,1,7,0,8,0,5,2,6,3,5,3,5,1,7,0,8,0,5,2,6,3,5,3,5,1,7,0,8,4,4}; //Quantidade par e terminar em 44
+int passosMus1[] = {0,8,2,6,3,5,3,5,1,7,0,8,0,8,2,6,3,5,3,5,1,7,0,8,0,8,2,6,3,5,3,5,1,7,0,8,0,8,2,6,3,5,3,5,1,7,0,8,4,4}; //Quantidade par e terminar em 44
 void musica() { 
 	
 	while(op==0){
@@ -30,8 +30,8 @@ void musica() {
 		break;
 	case 2:
 		system("/home/mirele/Documentos/Projetos/Justdance/play2.txt");
+
 		break;
-	
 	default:
 		break;
 	}
@@ -46,7 +46,8 @@ void exibeMenu(){
 			"\t\t|\t\t\t\t\t\t\t\t|\n"
 			"\n\n\t\t________________________Sair do programa: ____________________\n"
             "\t\t|\t\t\t\t\t\t\t\t|\n"
-            "\t\t|\t\t\t3 - Fechar \t\t\t\t|\n"
+			"\t\t|\t\t\t3 - Ranking \t\t\t\t|\n"
+            "\t\t|\t\t\t4 - Fechar \t\t\t\t|\n"
             "\t\t|\t\t\t\t\t\t\t\t|\n"
             "\t\t-----------------------------------------------------------------\n\n");
 }
@@ -66,20 +67,29 @@ int main( int argc, char** argv ) {
 		cout << "\t >>> Digite uma opcao: ";
         cin >> op;
 
-		if(op==3){
+		if(op==4){
 			break;
 		}
 
-		cout << "\nComecou!\n---------------------------------------------------------" << endl;
-		if (!id.capture.isOpened()) // Caso falhe em iniciar webcam
-		{
-			return 1;
+		if(op == 1 || op == 2){
+			
+			cout << "\nComecou!\n---------------------------------------------------------" << endl;
+			if (!id.capture.isOpened()) // Caso falhe em iniciar webcam
+			{
+				return 1;
+			}
+
+			//inicia o justdance
+			jus.play();
+			cout << "\tSua pontuação foi " << jus.pontos << endl;
+			jus.ranking();
+			first.join(); 
+
+		}else if(op == 3){
+			cout << "\tMaior pontuação: " << jus.ranking() << endl;
 		}
-		
-		//inicia o justdance
-		jus.play();
-		first.join(); 
-		cout << "Sua pontuação foi " << jus.pontos << endl;
+	
+
 
 	}
 	
